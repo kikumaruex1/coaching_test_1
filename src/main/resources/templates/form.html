@@ -6,14 +6,15 @@
 </head>
 <body>
 <!-- Q2-4, Q3-2 -->
-<form>
+<form th:action="@{/create}" th:object="${coachingForm}" th:method="post">
     <div>
         <label>ルートパラメーター</label>
-        <input type="text" name="data">
+        <input th:placeholder="${routeParam}" type="text" th:field="*{data}">
     </div>
     <div>
         <input type="submit" value="送信">
     </div>
 </form>
+
 </body>
 </html>

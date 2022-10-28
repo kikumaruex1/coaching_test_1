@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import com.example.form.CoachingForm;
 
@@ -15,27 +15,34 @@ import com.example.form.CoachingForm;
 @RequestMapping
 public class CoachingController {
 
+	//Q1-1
 	@GetMapping("/index")
-    public String index(@RequestParam("food") String food
-    	    ,@RequestParam("drinlk")String drinlk) {
-
-    	//model.addAttribute("message",text);
-    	return "index";
-    }
-
-	@GetMapping("/form/{routeParam}")
-	public String form (@PathVariable Integer num, Model model)
+	public String index(@RequestParam("food") String food
+						,@RequestParam("drink") String drink
+						,Model model)
 	{
-		CoachingForm coachingForm = new CoachingForm();
-		model.addAttribute("coachingForm", coachingForm);
-		return "coachingForm/data";
+		model.addAttribute("food", food);
+		model.addAttribute("drink", drink);
+
+		return "index";
 	}
 
+
+	//Q2-2
+	@GetMapping("/form/{routeParam}")
+	public String form (@PathVariable String routeParam
+						,CoachingForm coachingForm,Model model)
+	{
+		return "form";
+	}
+
+
+	//Q3-1
     @PostMapping("/create")
-    public String create(CoachingForm coachingForm) {
-    	CoachingForm coachingForm
-    	String date =
-        return "";
+    public String create(CoachingForm coachingForm,Model model) {
+    	model.addAttribute("data", coachingForm.getData());
+        return "complete";
     }
+
 
 }

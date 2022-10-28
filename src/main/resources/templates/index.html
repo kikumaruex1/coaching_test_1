@@ -9,11 +9,12 @@
     <h2>クエリパラメーター一覧</h2>
     <ul>
     	<!-- Q1-2 -->
-        <li th:text="${food}">食べ物:</li>
-        <li th:text="${drink}">ドリンク:</li>
+    	<li>食べ物：<span th:text="${food}"></span></li>
+        <li>飲み物：<span th:text="${drink}"></span></li>
+
     </ul>
 </div>
 <!-- Q2-3 -->
-<a>次のページへのリンク</a>
+<a href="/form/a">次のページへのリンク</a>
 </body>
 </html>
